@@ -27,6 +27,63 @@ A cross-platform medical system supporting iOS, Android, Web, and PWA.
 | [Web](https://github.com/ZJU-SE-2021/MSaaS-Frontend)   | [![Test](https://github.com/ZJU-SE-2021/MSaaS-Frontend/actions/workflows/run-test.yml/badge.svg)](https://github.com/ZJU-SE-2021/MSaaS-Frontend/actions/workflows/run-test.yml) | [![Deploy](https://github.com/ZJU-SE-2021/MSaaS-Frontend/actions/workflows/build-image.yml/badge.svg)](https://github.com/ZJU-SE-2021/MSaaS-Frontend/actions/workflows/build-image.yml) |
 | [Server](https://github.com/ZJU-SE-2021/MSaaS-Backend) | [![CI](https://github.com/ZJU-SE-2021/MSaaS-Backend/actions/workflows/ci.yml/badge.svg)](https://github.com/ZJU-SE-2021/MSaaS-Backend/actions/workflows/ci.yml) | [![Deploy](https://github.com/ZJU-SE-2021/MSaaS-Backend/actions/workflows/cd.yml/badge.svg)](https://github.com/ZJU-SE-2021/MSaaS-Backend/actions/workflows/cd.yml) |
 
+## Deployment
+
+You may deploy your own MSaaS instance using the following compose file.
+
+```yaml
+version: '3'
+
+services:
+  frontend:
+    image: registry.cn-hangzhou.aliyuncs.com/ncj/msaas:latest
+    restart: always
+  client_web:
+    image: registry.cn-hangzhou.aliyuncs.com/ncj/msaas_client:latest
+    restart: always
+  backend:
+      image: registry.cn-hangzhou.aliyuncs.com/ncj/msaas_backend:latest
+      restart: always
+      depends_on: 
+          - "db"
+          - "redis"
+      environment: 
+          ConnectionStrings__Msaas: "Host=db;Database=msaas;Username=postgres;Password=${DB_PASSWORD}"
+          ConnectionStrings__Redis: "redis:6379"
+          JwtSettings__ExpiresIn: 604800
+          JwtSettings__SigningKey: ${JWT_SIGNING_KEY}
+          SubDirectory: "/api"
+  db:
+      image: postgres:13
+      restart: always
+      environment:
+          POSTGRES_PASSWORD: ${DB_PASSWORD}
+          POSTGRES_DB: msaas
+      volumes:
+          - data:/var/lib/postgresql/data
+      command: postgres -c 'max_connections=1000'
+  redis:
+      image: redis:6-alpine
+      restart: always
+  graph_db:
+      image: registry.cn-hangzhou.aliyuncs.com/ncj/msaas_chatterbot_graph:latest
+      restart: always
+  peerjs:
+      image: peerjs/peerjs-server:0.6.1
+      restart: always
+      command: peerjs --port 9000 --key msaas_peerjs --path /peerjs
+  chatter_bot_api:
+      image: registry.cn-hangzhou.aliyuncs.com/ncj/msaas_chatterbot_api:latest
+      restart: always
+      depends_on: 
+          - "graph_db"
+      environment:
+          NEO4J: "http://graph_db:7474"
+
+volumes:
+    data:
+```
+
 ## Architecture
 
 ![microservices_architecture](README.assets/microservices_architecture.png)
