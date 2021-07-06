@@ -1,4 +1,6 @@
-<img src="https://avatars.githubusercontent.com/u/82106068" alt="MSaaS" style="zoom:50%;" />
+<p align="center">
+	<img src="https://avatars.githubusercontent.com/u/82106068" alt="MSaaS" style="zoom:30%;" />
+</p>
 
 # Medical System as a Service
 
