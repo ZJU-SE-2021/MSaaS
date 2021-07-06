@@ -8,6 +8,14 @@
 
 A cross-platform medical system supporting iOS, Android, Web, and PWA.
 
+## Pipeline Status
+
+| Parts                                                  | CI                                                           | CD                                                           |
+| ------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| [Client](https://github.com/ZJU-SE-2021/MSaaS-Client)  | [![Test](https://github.com/ZJU-SE-2021/MSaaS-Client/actions/workflows/run-test.yml/badge.svg)](https://github.com/ZJU-SE-2021/MSaaS-Client/actions/workflows/run-test.yml) | [![Deploy](https://github.com/ZJU-SE-2021/MSaaS-Client/actions/workflows/build-image.yml/badge.svg)](https://github.com/ZJU-SE-2021/MSaaS-Client/actions/workflows/build-image.yml) |
+| [Web](https://github.com/ZJU-SE-2021/MSaaS-Frontend)   | [![Test](https://github.com/ZJU-SE-2021/MSaaS-Frontend/actions/workflows/run-test.yml/badge.svg)](https://github.com/ZJU-SE-2021/MSaaS-Frontend/actions/workflows/run-test.yml) | [![Deploy](https://github.com/ZJU-SE-2021/MSaaS-Frontend/actions/workflows/build-image.yml/badge.svg)](https://github.com/ZJU-SE-2021/MSaaS-Frontend/actions/workflows/build-image.yml) |
+| [Server](https://github.com/ZJU-SE-2021/MSaaS-Backend) | [![CI](https://github.com/ZJU-SE-2021/MSaaS-Backend/actions/workflows/ci.yml/badge.svg)](https://github.com/ZJU-SE-2021/MSaaS-Backend/actions/workflows/ci.yml) | [![Deploy](https://github.com/ZJU-SE-2021/MSaaS-Backend/actions/workflows/cd.yml/badge.svg)](https://github.com/ZJU-SE-2021/MSaaS-Backend/actions/workflows/cd.yml) |
+
 ## Features & Highlights
 
 - Basic CRUD System with B/S, C/S Architecture
@@ -18,14 +26,6 @@ A cross-platform medical system supporting iOS, Android, Web, and PWA.
 - Intelligent API Maintainance with OpenAPI
 - Cloud Native DevOps Development with GitHub Actions, Docker Registry and WatchTower
 - ...
-
-## Pipeline Status
-
-| Parts                                                  | CI                                                           | CD                                                           |
-| ------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [Client](https://github.com/ZJU-SE-2021/MSaaS-Client)  | [![Test](https://github.com/ZJU-SE-2021/MSaaS-Client/actions/workflows/run-test.yml/badge.svg)](https://github.com/ZJU-SE-2021/MSaaS-Client/actions/workflows/run-test.yml) | [![Deploy](https://github.com/ZJU-SE-2021/MSaaS-Client/actions/workflows/build-image.yml/badge.svg)](https://github.com/ZJU-SE-2021/MSaaS-Client/actions/workflows/build-image.yml) |
-| [Web](https://github.com/ZJU-SE-2021/MSaaS-Frontend)   | [![Test](https://github.com/ZJU-SE-2021/MSaaS-Frontend/actions/workflows/run-test.yml/badge.svg)](https://github.com/ZJU-SE-2021/MSaaS-Frontend/actions/workflows/run-test.yml) | [![Deploy](https://github.com/ZJU-SE-2021/MSaaS-Frontend/actions/workflows/build-image.yml/badge.svg)](https://github.com/ZJU-SE-2021/MSaaS-Frontend/actions/workflows/build-image.yml) |
-| [Server](https://github.com/ZJU-SE-2021/MSaaS-Backend) | [![CI](https://github.com/ZJU-SE-2021/MSaaS-Backend/actions/workflows/ci.yml/badge.svg)](https://github.com/ZJU-SE-2021/MSaaS-Backend/actions/workflows/ci.yml) | [![Deploy](https://github.com/ZJU-SE-2021/MSaaS-Backend/actions/workflows/cd.yml/badge.svg)](https://github.com/ZJU-SE-2021/MSaaS-Backend/actions/workflows/cd.yml) |
 
 ## Deployment
 
