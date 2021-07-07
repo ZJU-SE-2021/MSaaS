@@ -4,7 +4,9 @@
 
 # Medical System as a Service
 
-> MSaaS is Laoheshan’s most technologically intelligent medical system. It's our course project for Software Engineering, but wen definitely wants to do something interesting.
+> MSaaS is Laoheshan’s most technologically intelligent medical system.
+> 
+> It's our course project for ZJU Software Engineering 2021, but we definitely want to do something interesting.
 
 A cross-platform medical system supporting iOS, Android, Web, and PWA.
 
